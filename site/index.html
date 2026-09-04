@@ -6,45 +6,80 @@
     <meta name="description" content="A practical AEM interview preparation guide." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <title>AEM Notes</title>
+    <meta name="theme-color" content="#17211f" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme-init.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" />
+    <link rel="preload" as="style" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#article" class="skip-link">Skip to main content</a>
+    <div class="sidebar-overlay" id="sidebar-overlay" hidden></div>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Document navigation">
-        <a class="brand" href="."><span class="brand-mark">A/</span><span>AEM<br /><b>NOTES</b></span></a>
+      <aside class="sidebar" id="sidebar" aria-label="Document navigation">
+        <a class="brand" href="."><span class="brand-mark">AEM</span><span>AEM<br /><b>NOTES</b></span></a>
         <div class="sidebar-rule"></div>
+        <div class="sidebar-progress" id="sidebar-progress">
+          <div class="sidebar-progress-label">
+            <span>PROGRESS</span>
+            <strong id="progress-percent">0%</strong>
+          </div>
+          <div class="sidebar-progress-bar">
+            <span id="progress-fill" style="width: 0%"></span>
+          </div>
+        </div>
         <p class="eyebrow">The study desk</p>
         <nav id="document-nav"></nav>
-        <div class="sidebar-footer"><span class="status-dot"></span><span id="doc-count">Loading library</span></div>
+        <div class="sidebar-footer">
+          <div class="sidebar-footer-info">
+            <span class="status-dot"></span>
+            <span id="doc-count" aria-live="polite">Loading library</span>
+          </div>
+          <button class="sidebar-collapse-toggle" id="sidebar-collapse-toggle" type="button" aria-label="Collapse sidebar" title="Collapse sidebar">«</button>
+        </div>
       </aside>
-      <main class="main-content">
+      <main class="main-content" id="main">
         <header class="topbar">
-          <button class="menu-button" id="menu-button" aria-label="Open navigation">☰</button>
+          <button class="menu-button" id="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
           <div class="breadcrumbs" id="breadcrumbs"><span>AEM NOTES</span></div>
           <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Search the notes..." aria-label="Search documents" /><kbd>/</kbd></label>
           <button class="theme-button" id="theme-button" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">☾</button>
+          <button class="print-button" id="print-button" type="button" aria-label="Print this chapter" title="Print this chapter">▣</button>
         </header>
         <section id="welcome" class="welcome">
           <div class="welcome-copy">
             <p class="eyebrow accent">Interview preparation / 2026 edition</p>
             <h1>Learn AEM like<br /><em>you built it.</em></h1>
             <p class="intro">A field guide for explaining Adobe Experience Manager with practical depth, clear trade-offs, and stories that survive the follow-up question.</p>
-            <a class="start-link" href="#doc-01-aem-architecture">Start with architecture <span>↗</span></a>
+            <a class="start-link" href="#01-aem-architecture-v2-teaching-style">Start with architecture <span>↗</span></a>
           </div>
           <div class="welcome-aside"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="signal">AEM<br /><strong>01—17</strong></div><p>From repository<br />to rendered page.</p></div>
+          <div class="home-tools" id="home-tools"></div>
         </section>
         <section class="reader" id="reader" hidden>
           <div class="reader-meta" id="reader-meta"></div>
+          <div class="reading-progress"><span id="progress-bar"></span></div>
+          <div class="reader-actions"><button id="bookmark-button" type="button">☆ Save for later</button><button id="complete-button" type="button">Mark complete</button></div>
+          <nav class="toc" id="toc" aria-label="On this page"></nav>
           <article class="markdown-body" id="article"></article>
           <div class="pager" id="pager"></div>
         </section>
         <div class="empty-state" id="empty-state" hidden>No notes match that search.</div>
       </main>
     </div>
-    <script src="app.js"></script>
+    <button class="bottom-button" id="bottom-button" type="button" aria-label="Scroll to bottom" title="Scroll to bottom" hidden>↓</button>
+    <button class="top-button" id="top-button" type="button" aria-label="Scroll to top" title="Scroll to top" hidden>↑</button>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"
+      integrity="sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2"
+      crossorigin="anonymous"
+      defer></script>
+    <script src="app.js" defer></script>
   </body>
 </html>

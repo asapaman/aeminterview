@@ -11,7 +11,12 @@ const server = http.createServer(async (request, response) => {
   try {
     const requestPath = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const requested = path.resolve(root, `.${requestPath}`);
-    const filePath = requested.startsWith(root) ? requested : path.join(root, 'index.html');
+    // Must be root itself or a real descendant (root + separator) — a bare
+    // startsWith(root) check would also match a sibling directory whose name
+    // happens to start with "dist" (e.g. ../dist-backup), letting a crafted
+    // request read files outside the intended tree.
+    const isInsideRoot = requested === root || requested.startsWith(root + path.sep);
+    const filePath = isInsideRoot ? requested : path.join(root, 'index.html');
     const info = await stat(filePath);
     const finalPath = info.isDirectory() ? path.join(filePath, 'index.html') : filePath;
     await access(finalPath);
@@ -23,4 +28,15 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
-server.listen(4173, () => console.log('AEM Notes running at http://localhost:4173'));
+const startServer = (port) => {
+  server.once('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+      startServer(port + 1);
+      return;
+    }
+    throw error;
+  });
+  server.listen(port, () => console.log(`AEM Notes running at http://localhost:${port}`));
+};
+
+startServer(Number(process.env.PORT) || 4173);
