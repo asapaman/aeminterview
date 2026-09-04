@@ -30,8 +30,8 @@ const loadDocument = async (slug) => {
   const index = state.documents.indexOf(doc);
   const response = await fetch(`docs/${doc.slug}.html`);
   article.innerHTML = await response.text();
-  document.title = `${doc.title} · AEM Field Notes`;
-  breadcrumbs.innerHTML = `<span>AEM FIELD NOTES</span><b>/</b><strong>${doc.title}</strong>`;
+  document.title = `${doc.title} · AEM Notes`;
+  breadcrumbs.innerHTML = `<span>AEM NOTES</span><b>/</b><strong>${doc.title}</strong>`;
   document.querySelector('#reader-meta').innerHTML = `<span>CHAPTER ${doc.number}</span><span>${index + 1} OF ${state.documents.length}</span>`;
   const previous = state.documents[index - 1];
   const next = state.documents[index + 1];
@@ -46,7 +46,7 @@ const loadDocument = async (slug) => {
 const route = () => {
   const slug = location.hash.replace('#doc-', '');
   if (slug) loadDocument(slug);
-  else { welcome.hidden = false; reader.hidden = true; document.title = 'AEM Field Notes'; }
+  else { welcome.hidden = false; reader.hidden = true; document.title = 'AEM Notes'; }
 };
 
 fetch('documents.json').then((response) => response.json()).then((documents) => {
