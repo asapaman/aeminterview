@@ -1,4 +1,4 @@
-name: Deploy AEM Field Notes
+name: Deploy AEM Notes
 on:
   push:
     branches: [main]

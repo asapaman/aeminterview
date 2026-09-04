@@ -23,4 +23,4 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
-server.listen(4173, () => console.log('AEM Field Notes running at http://localhost:4173'));
+server.listen(4173, () => console.log('AEM Notes running at http://localhost:4173'));
