@@ -873,7 +873,8 @@ body {
 /* --------------------------------------------------------------------------
    09. PAGER, ACTIONS & FLOATING TOOLS
    -------------------------------------------------------------------------- */
-.pager {
+.pager,
+.static-pager {
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -883,7 +884,8 @@ body {
   padding-top: 20px;
 }
 
-.pager a {
+.pager a,
+.static-pager a {
   color: var(--ink);
   display: flex;
   flex-direction: column;
@@ -891,16 +893,19 @@ body {
   text-decoration: none;
 }
 
-.pager a.next {
+.pager a.next,
+.static-pager a.next {
   text-align: right;
 }
 
-.pager small {
+.pager small,
+.static-pager small {
   color: var(--teal);
   font: 10px "DM Mono", monospace;
 }
 
-.pager strong {
+.pager strong,
+.static-pager strong {
   font-size: 13px;
 }
 
@@ -908,6 +913,58 @@ body {
   color: var(--muted);
   padding: 80px 20px;
   text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   09B. SITE FOOTER & STANDALONE (NON-SPA) CHAPTER PAGES
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 12px "DM Mono", monospace;
+  margin-top: 64px;
+  padding: 24px 28px 40px;
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--teal);
+}
+
+.static-page-header {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 28px;
+}
+
+.static-open-app {
+  color: var(--coral);
+  font: 12px "DM Mono", monospace;
+  text-decoration: none;
+}
+
+.static-open-app:hover {
+  text-decoration: underline;
+}
+
+.static-page-main {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 36px 28px 0;
+}
+
+.static-breadcrumb {
+  color: var(--muted);
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.static-breadcrumb a {
+  color: var(--teal);
 }
 
 .top-button,

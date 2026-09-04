@@ -65,7 +65,7 @@ const setSidebarCollapsed = (collapsed) => {
 const renderDocNavLink = (doc) => {
   const cleanTitle = doc.title.replace(/^\d+[A-Z]?\s*[–-]?\s*/i, '');
   const activeClass = currentDoc && currentDoc.slug === doc.slug ? 'active' : '';
-  return `<a href="#${encodeURIComponent(doc.slug)}" data-slug="${escapeHtml(doc.slug)}" class="${activeClass}"><span>${escapeHtml(doc.number)}</span><span class="nav-doc-title">${escapeHtml(cleanTitle)}</span></a>`;
+  return `<a href="docs/${encodeURIComponent(doc.slug)}.html" data-slug="${escapeHtml(doc.slug)}" data-nav-slug="${escapeHtml(doc.slug)}" class="${activeClass}"><span>${escapeHtml(doc.number)}</span><span class="nav-doc-title">${escapeHtml(cleanTitle)}</span></a>`;
 };
 
 const renderNav = () => {
@@ -113,7 +113,7 @@ const loadDocument = async (slug) => {
   reader.classList.add('is-loading');
   document.body.classList.add('document-open');
   article.innerHTML = '<p class="loading-note">Loading chapter…</p>';
-  const response = await fetch(`docs/${doc.slug}.html`);
+  const response = await fetch(`fragments/${doc.slug}.html`);
   const html = await response.text();
   if (currentDoc !== doc) return; // a newer navigation already started — don't overwrite it
   article.innerHTML = html;
@@ -127,7 +127,7 @@ const loadDocument = async (slug) => {
   document.querySelector('#reader-meta').innerHTML = `<span>CHAPTER ${escapeHtml(doc.number)} · ⏱ ${readTimeMin} MIN READ</span><span>${index + 1} OF ${state.documents.length}</span>`;
   const previous = state.documents[index - 1];
   const next = state.documents[index + 1];
-  document.querySelector('#pager').innerHTML = `${previous ? `<a href="#${encodeURIComponent(previous.slug)}"><small>PREVIOUS</small><strong>← ${escapeHtml(previous.title)}</strong></a>` : '<span></span>'}${next ? `<a class="next" href="#${encodeURIComponent(next.slug)}"><small>NEXT</small><strong>${escapeHtml(next.title)} →</strong></a>` : '<span></span>'}`;
+  document.querySelector('#pager').innerHTML = `${previous ? `<a href="docs/${encodeURIComponent(previous.slug)}.html" data-nav-slug="${escapeHtml(previous.slug)}"><small>PREVIOUS</small><strong>← ${escapeHtml(previous.title)}</strong></a>` : '<span></span>'}${next ? `<a class="next" href="docs/${encodeURIComponent(next.slug)}.html" data-nav-slug="${escapeHtml(next.slug)}"><small>NEXT</small><strong>${escapeHtml(next.title)} →</strong></a>` : '<span></span>'}`;
   document.querySelectorAll('#document-nav a').forEach((link) => link.classList.toggle('active', link.dataset.slug === slug));
   reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
   closeSidebar();
@@ -190,7 +190,7 @@ const updateActiveToc = (headings = [...article.querySelectorAll('h2, h3')]) => 
 
 const renderHomeTools = () => {
   const recent = JSON.parse(localStorage.getItem(recentKey) || '[]').map((slug) => state.documents.find((doc) => doc.slug === slug)).filter(Boolean);
-  document.querySelector('#home-tools').innerHTML = `<div class="index-panel"><span class="eyebrow">Your desk</span><strong>${recent.length ? 'Continue where you left off' : 'Your study desk'}</strong>${recent.map((doc) => `<a href="#${encodeURIComponent(doc.slug)}">${escapeHtml(doc.number)} ${escapeHtml(doc.title)} <span>↗</span></a>`).join('') || '<span class="panel-note">Topics you open will appear here.</span>'}</div><div class="index-panel"><span class="eyebrow">Library index</span><strong>${state.documents.length} chapters</strong><span class="panel-note">The complete AEM interview preparation library.</span></div>`;
+  document.querySelector('#home-tools').innerHTML = `<div class="index-panel"><span class="eyebrow">Your desk</span><strong>${recent.length ? 'Continue where you left off' : 'Your study desk'}</strong>${recent.map((doc) => `<a href="docs/${encodeURIComponent(doc.slug)}.html" data-nav-slug="${escapeHtml(doc.slug)}">${escapeHtml(doc.number)} ${escapeHtml(doc.title)} <span>↗</span></a>`).join('') || '<span class="panel-note">Topics you open will appear here.</span>'}</div><div class="index-panel"><span class="eyebrow">Library index</span><strong>${state.documents.length} chapters</strong><span class="panel-note">The complete AEM interview preparation library.</span></div>`;
 };
 
 const route = () => {
@@ -259,3 +259,16 @@ if ('serviceWorker' in navigator) {
 }
 
 window.addEventListener('hashchange', route);
+
+// Internal chapter links use real hrefs (docs/{slug}.html) so they're
+// genuinely crawlable and work with no JS, a new tab, or a middle-click.
+// For an ordinary in-app click, intercept and route through the hash-based
+// SPA instead of a full page navigation.
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[data-nav-slug]');
+  if (!link) return;
+  if (event.defaultPrevented || event.button !== 0) return;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  location.hash = encodeURIComponent(link.dataset.navSlug);
+});
