@@ -39,4 +39,5 @@ for (const document of documents) {
 await writeFile(path.join(outputDir, 'documents.json'), JSON.stringify(documents.map(({ source, ...document }) => document), null, 2));
 await cp(path.join(root, 'site'), outputDir, { recursive: true });
 await writeFile(path.join(outputDir, 'CNAME'), 'docs.kumaraman.in\n');
+await writeFile(path.join(outputDir, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 console.log(`Built ${documents.length} documents in dist/`);
