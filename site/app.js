@@ -36,6 +36,24 @@ const shortcutsModalClose = document.querySelector('#shortcuts-modal-close');
 const diagramModal = document.querySelector('#diagram-modal');
 const diagramModalBody = document.querySelector('#diagram-modal-body');
 const diagramModalClose = document.querySelector('#diagram-modal-close');
+const diagramZoomInBtn = document.querySelector('#diagram-zoom-in');
+const diagramZoomOutBtn = document.querySelector('#diagram-zoom-out');
+const diagramZoomResetBtn = document.querySelector('#diagram-zoom-reset');
+const diagramZoomLevelText = document.querySelector('#diagram-zoom-level');
+
+let currentDiagramZoom = 1.0;
+
+const setDiagramZoom = (newZoom) => {
+  currentDiagramZoom = Math.min(5.0, Math.max(0.25, Math.round(newZoom * 100) / 100));
+  if (diagramZoomLevelText) {
+    diagramZoomLevelText.textContent = `${Math.round(currentDiagramZoom * 100)}%`;
+  }
+  if (diagramModalBody && diagramModalBody.firstElementChild) {
+    diagramModalBody.firstElementChild.style.transform = `scale(${currentDiagramZoom})`;
+  }
+};
+
+const resetDiagramZoom = () => setDiagramZoom(1.0);
 
 const toggleShortcutsModal = () => {
   if (!shortcutsModal) return;
@@ -47,12 +65,19 @@ const closeModals = () => {
   if (diagramModal) {
     diagramModal.hidden = true;
     if (diagramModalBody) diagramModalBody.innerHTML = '';
+    resetDiagramZoom();
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
   }
 };
 
 if (shortcutsButton) shortcutsButton.addEventListener('click', toggleShortcutsModal);
 if (shortcutsModalClose) shortcutsModalClose.addEventListener('click', () => { if (shortcutsModal) shortcutsModal.hidden = true; });
 if (diagramModalClose) diagramModalClose.addEventListener('click', closeModals);
+if (diagramZoomInBtn) diagramZoomInBtn.addEventListener('click', () => setDiagramZoom(currentDiagramZoom + 0.25));
+if (diagramZoomOutBtn) diagramZoomOutBtn.addEventListener('click', () => setDiagramZoom(currentDiagramZoom - 0.25));
+if (diagramZoomResetBtn) diagramZoomResetBtn.addEventListener('click', () => setDiagramZoom(1.0));
 if (shortcutsModal) shortcutsModal.addEventListener('click', (e) => { if (e.target === shortcutsModal) closeModals(); });
 if (diagramModal) diagramModal.addEventListener('click', (e) => { if (e.target === diagramModal) closeModals(); });
 
@@ -342,6 +367,40 @@ const setupArticleTools = () => {
     });
     container.append(button);
   });
+  article.querySelectorAll('.mermaid-block, .markdown-body img').forEach((diagram) => {
+    let wrapper = diagram.closest('.diagram-wrapper');
+    if (!wrapper) {
+      wrapper = document.createElement('div');
+      wrapper.className = 'diagram-wrapper';
+      diagram.replaceWith(wrapper);
+      wrapper.appendChild(diagram);
+    }
+
+    if (wrapper.querySelector('.diagram-fullscreen-btn')) return;
+
+    const fsBtn = document.createElement('button');
+    fsBtn.className = 'diagram-fullscreen-btn';
+    fsBtn.type = 'button';
+    fsBtn.innerHTML = '⛶ Fullscreen';
+    fsBtn.title = 'View in full screen with zoom controls';
+
+    fsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!diagramModal || !diagramModalBody) return;
+      diagramModalBody.innerHTML = '';
+      const clone = diagram.cloneNode(true);
+      clone.classList.add('zoomed-diagram');
+      diagramModalBody.appendChild(clone);
+      resetDiagramZoom();
+      diagramModal.hidden = false;
+      if (diagramModal.requestFullscreen && document.fullscreenElement !== diagramModal) {
+        diagramModal.requestFullscreen().catch(() => {});
+      }
+    });
+
+    wrapper.appendChild(fsBtn);
+  });
+
   if (window.mermaid) {
     const dark = document.documentElement.dataset.theme === 'dark';
     window.mermaid.initialize({
@@ -364,18 +423,6 @@ const setupArticleTools = () => {
       article.querySelectorAll('.mermaid-block').forEach((diagram) => diagram.classList.add('diagram-fallback'));
     });
   }
-
-  article.querySelectorAll('.mermaid-block, .markdown-body img').forEach((diagram) => {
-    diagram.setAttribute('title', 'Click to zoom diagram in full screen');
-    diagram.addEventListener('click', () => {
-      if (!diagramModal || !diagramModalBody) return;
-      diagramModalBody.innerHTML = '';
-      const clone = diagram.cloneNode(true);
-      clone.classList.add('zoomed-diagram');
-      diagramModalBody.appendChild(clone);
-      diagramModal.hidden = false;
-    });
-  });
 
   article.querySelectorAll('.markdown-body blockquote, .markdown-body p').forEach((el) => {
     const text = el.textContent.toLowerCase();
@@ -473,7 +520,29 @@ search.addEventListener('keydown', (event) => {
     search.blur();
   }
 });
-document.addEventListener('keydown', (event) => { if (event.key === '/' && document.activeElement !== search) { event.preventDefault(); search.focus(); } });
+document.addEventListener('keydown', (event) => {
+  if (diagramModal && !diagramModal.hidden) {
+    if (event.key === '+' || event.key === '=') {
+      event.preventDefault();
+      setDiagramZoom(currentDiagramZoom + 0.25);
+      return;
+    }
+    if (event.key === '-' || event.key === '_') {
+      event.preventDefault();
+      setDiagramZoom(currentDiagramZoom - 0.25);
+      return;
+    }
+    if (event.key === '0') {
+      event.preventDefault();
+      setDiagramZoom(1.0);
+      return;
+    }
+  }
+  if (event.key === '/' && document.activeElement !== search) {
+    event.preventDefault();
+    search.focus();
+  }
+});
 window.addEventListener('scroll', () => updateActiveToc(), { passive: true });
 const updateScrollButtons = () => {
   const scrollable = document.documentElement.scrollHeight > window.innerHeight + 40;

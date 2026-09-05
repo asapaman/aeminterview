@@ -1559,17 +1559,48 @@ body.toc-collapsed .pager {
   border-left-color: var(--coral) !important;
 }
 
-/* Diagram Zoom Cursor & Hover Effect */
-.mermaid-block,
-.markdown-body img {
-  cursor: zoom-in;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Diagram Container & Bottom-Corner Fullscreen Button */
+.diagram-wrapper {
+  position: relative;
+  margin: 24px 0;
+  display: block;
 }
 
-.mermaid-block:hover,
-.markdown-body img:hover {
-  transform: scale(1.01);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.diagram-wrapper .mermaid-block {
+  margin: 0;
+}
+
+.mermaid-block,
+.markdown-body img {
+  position: relative;
+}
+
+.diagram-fullscreen-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font: 600 11px "DM Mono", monospace;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.85;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.diagram-fullscreen-btn:hover {
+  opacity: 1;
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Modals & Shortcuts Cheat Sheet */
@@ -1577,7 +1608,7 @@ body.toc-collapsed .pager {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   display: flex;
@@ -1586,7 +1617,26 @@ body.toc-collapsed .pager {
   padding: 20px;
 }
 
-.diagram-modal-content,
+/* Full Screen Edge-to-Edge Diagram Viewer */
+#diagram-modal {
+  padding: 0;
+  background: var(--paper);
+}
+
+.diagram-modal-content {
+  background: var(--paper);
+  border: none;
+  border-radius: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  overflow: hidden;
+}
+
 .shortcuts-modal-content {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -1603,11 +1653,41 @@ body.toc-collapsed .pager {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  padding: 14px 24px;
   border-bottom: 1px solid var(--line);
   font: 600 12px "DM Mono", monospace;
   color: var(--teal);
   letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.diagram-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diagram-zoom-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font: 600 12px "DM Mono", monospace;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diagram-zoom-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.diagram-zoom-level {
+  font: 600 11px "DM Mono", monospace;
+  color: var(--muted);
+  min-width: 48px;
+  text-align: center;
 }
 
 .modal-close-btn {
@@ -1615,14 +1695,15 @@ body.toc-collapsed .pager {
   border: 1px solid var(--line);
   color: var(--ink);
   font: 700 14px "DM Mono", monospace;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  margin-left: 8px;
 }
 
 .modal-close-btn:hover {
@@ -1631,18 +1712,22 @@ body.toc-collapsed .pager {
 }
 
 .diagram-modal-body {
-  padding: 24px;
+  flex: 1;
+  padding: 40px;
   overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--paper);
+  width: 100%;
+  height: 100%;
 }
 
-.diagram-modal-body svg,
-.diagram-modal-body img {
-  max-width: 100%;
-  height: auto;
+.diagram-modal-body > * {
+  max-width: 90vw;
+  max-height: 85vh;
+  transform-origin: center center;
+  transition: transform 0.15s ease-out;
 }
 
 .shortcuts-grid {
