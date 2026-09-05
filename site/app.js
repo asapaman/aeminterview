@@ -17,6 +17,7 @@ const toc = document.querySelector('#toc');
 const progressBar = document.querySelector('#progress-bar');
 const bookmarkButton = document.querySelector('#bookmark-button');
 const completeButton = document.querySelector('#complete-button');
+const readerFullscreenButton = document.querySelector('#reader-fullscreen-button');
 const topButton = document.querySelector('#top-button');
 const bottomButton = document.querySelector('#bottom-button');
 const recentKey = 'aem-notes-recent';
@@ -235,10 +236,51 @@ if (sidebarOverlay) {
 }
 themeButton.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 document.querySelector('#print-button').addEventListener('click', () => window.print());
+const updateFullscreenUI = (isFullscreen) => {
+  document.body.classList.toggle('fullscreen-mode', isFullscreen);
+  if (readerFullscreenButton) {
+    readerFullscreenButton.classList.toggle('is-fullscreen', isFullscreen);
+    readerFullscreenButton.textContent = isFullscreen ? '⛶ Exit full screen' : '⛶ Read in full screen';
+    readerFullscreenButton.setAttribute('aria-label', isFullscreen ? 'Exit full screen reading mode' : 'Read in full screen reading mode');
+  }
+};
+
+const toggleFullscreen = () => {
+  const isCurrentlyFullscreen = document.body.classList.contains('fullscreen-mode') || Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  const nextFullscreenState = !isCurrentlyFullscreen;
+
+  updateFullscreenUI(nextFullscreenState);
+
+  if (nextFullscreenState) {
+    if (document.fullscreenEnabled && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+  } else {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }
+  }
+};
+
+if (readerFullscreenButton) {
+  readerFullscreenButton.addEventListener('click', toggleFullscreen);
+}
+
+const handleFullscreenChange = () => {
+  const isNativeFS = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  if (!isNativeFS && document.body.classList.contains('fullscreen-mode')) {
+    updateFullscreenUI(false);
+  }
+};
+
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
 bookmarkButton.addEventListener('click', () => { const saved = JSON.parse(localStorage.getItem('aem-notes-saved') || '[]'); const next = saved.includes(currentDoc.slug) ? saved.filter((slug) => slug !== currentDoc.slug) : [...saved, currentDoc.slug]; localStorage.setItem('aem-notes-saved', JSON.stringify(next)); updateStudyState(); });
 completeButton.addEventListener('click', () => { const completed = JSON.parse(localStorage.getItem('aem-notes-completed') || '[]'); const next = completed.includes(currentDoc.slug) ? completed.filter((slug) => slug !== currentDoc.slug) : [...completed, currentDoc.slug]; localStorage.setItem('aem-notes-completed', JSON.stringify(next)); updateStudyState(); });
 window.addEventListener('scroll', () => { if (!currentDoc || reader.hidden) return; const start = reader.offsetTop; const height = reader.scrollHeight - window.innerHeight; progressBar.style.width = `${Math.min(100, Math.max(0, ((window.scrollY - start) / height) * 100))}%`; });
-window.addEventListener('keydown', (event) => { if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return; const index = state.documents.indexOf(currentDoc); if (event.key === 'ArrowLeft' && index > 0) location.hash = encodeURIComponent(state.documents[index - 1].slug); if (event.key === 'ArrowRight' && index < state.documents.length - 1) location.hash = encodeURIComponent(state.documents[index + 1].slug); if (event.key.toLowerCase() === 'd') themeButton.click(); });
+window.addEventListener('keydown', (event) => { if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return; const index = state.documents.indexOf(currentDoc); if (event.key === 'ArrowLeft' && index > 0) location.hash = encodeURIComponent(state.documents[index - 1].slug); if (event.key === 'ArrowRight' && index < state.documents.length - 1) location.hash = encodeURIComponent(state.documents[index + 1].slug); if (event.key.toLowerCase() === 'd') themeButton.click(); if (event.key.toLowerCase() === 'f') toggleFullscreen(); });
 const collapseToggleBtn = document.querySelector('#sidebar-collapse-toggle');
 if (collapseToggleBtn) {
   collapseToggleBtn.addEventListener('click', () => {

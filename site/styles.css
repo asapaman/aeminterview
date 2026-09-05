@@ -659,6 +659,11 @@ body {
   color: var(--teal);
 }
 
+.reader-actions button.is-fullscreen {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
 /* While a chapter's content is being fetched, dim the chrome around the
    empty article instead of leaving it looking fully loaded — otherwise the
    action buttons and (empty) TOC render a beat before the actual content. */
@@ -1067,6 +1072,60 @@ body {
   .toc-h3 {
     padding-left: 12px;
   }
+}
+
+/* --------------------------------------------------------------------------
+   FULLSCREEN / FOCUS READING MODE
+   -------------------------------------------------------------------------- */
+body.fullscreen-mode .sidebar {
+  transform: translateX(-100%) !important;
+}
+
+body.fullscreen-mode .main-content {
+  margin-left: 0 !important;
+}
+
+body.fullscreen-mode .reader {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 32px 48px 100px !important;
+}
+
+body.fullscreen-mode .markdown-body,
+body.fullscreen-mode .reading-progress,
+body.fullscreen-mode .reader-actions,
+body.fullscreen-mode .reader-meta,
+body.fullscreen-mode .pager {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+:fullscreen,
+::backdrop {
+  background-color: var(--paper);
+}
+
+:fullscreen .sidebar {
+  transform: translateX(-100%) !important;
+}
+
+:fullscreen .main-content {
+  margin-left: 0 !important;
+}
+
+:fullscreen .reader {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 32px 48px 100px !important;
+}
+
+:fullscreen .markdown-body,
+:fullscreen .reading-progress,
+:fullscreen .reader-actions,
+:fullscreen .reader-meta,
+:fullscreen .pager {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 /* Tablet & Mobile Screens (<= 1100px) */
