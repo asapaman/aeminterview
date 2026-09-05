@@ -59,7 +59,14 @@
           <button class="menu-button" id="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
           <div class="breadcrumbs" id="breadcrumbs"><span>AEM NOTES</span></div>
           <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Search the notes..." aria-label="Search documents" /><kbd>/</kbd></label>
+          <div class="font-size-controls" id="font-size-controls">
+            <button class="font-size-btn" id="font-dec-btn" type="button" aria-label="Decrease text size" title="Decrease text size">A⁻</button>
+            <button class="font-size-btn" id="font-inc-btn" type="button" aria-label="Increase text size" title="Increase text size">A⁺</button>
+          </div>
           <button class="theme-button" id="theme-button" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">☾</button>
+          <button class="fullscreen-button" id="fullscreen-button" type="button" aria-label="Read in full screen" title="Read in full screen (F)">⛶</button>
+          <button class="audio-listen-button" id="audio-listen-button" type="button" aria-label="Listen with Indian teaching voice" title="Listen with Indian teaching voice" hidden>🔊 Listen</button>
+          <button class="shortcuts-button" id="shortcuts-button" type="button" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">?</button>
           <button class="print-button" id="print-button" type="button" aria-label="Print this chapter" title="Print this chapter">▣</button>
         </header>
         <section id="welcome" class="welcome">
@@ -73,13 +80,57 @@
           <div class="home-tools" id="home-tools"></div>
         </section>
         <section class="reader" id="reader" hidden>
+          <button class="toc-expand-tab" id="toc-expand-tab" type="button" aria-label="Expand table of contents" title="Expand table of contents (T)" hidden>« On this page</button>
           <div class="reader-meta" id="reader-meta"></div>
           <div class="reading-progress"><span id="progress-bar"></span></div>
-          <div class="reader-actions"><button id="bookmark-button" type="button">☆ Save for later</button><button id="complete-button" type="button">Mark complete</button><button id="reader-fullscreen-button" type="button">⛶ Read in full screen</button></div>
+          <div class="reader-actions"><button id="bookmark-button" type="button">☆ Save for later</button><button id="complete-button" type="button">Mark complete</button></div>
           <nav class="toc" id="toc" aria-label="On this page"></nav>
           <article class="markdown-body" id="article"></article>
           <div class="pager" id="pager"></div>
         </section>
+        <div class="audio-player-bar" id="audio-player-bar" hidden>
+          <div class="audio-player-info">
+            <span class="audio-voice-badge">🇮🇳 Teaching Voice</span>
+            <span class="audio-progress-text" id="audio-progress-text">Ready to read</span>
+          </div>
+          <div class="audio-player-controls">
+            <button class="audio-btn" id="audio-play-btn" type="button" title="Play / Pause">▶ Play</button>
+            <button class="audio-btn" id="audio-stop-btn" type="button" title="Stop">⏹ Stop</button>
+            <select class="audio-speed-select" id="audio-speed-select" title="Speech Speed">
+              <option value="0.8">0.8x</option>
+              <option value="0.95" selected>1.0x</option>
+              <option value="1.2">1.25x</option>
+              <option value="1.4">1.5x</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-overlay" id="diagram-modal" hidden>
+          <div class="diagram-modal-content">
+            <div class="modal-header">
+              <span>🔍 DIAGRAM ZOOM VIEWER</span>
+              <button class="modal-close-btn" id="diagram-modal-close" type="button" aria-label="Close diagram viewer">✕</button>
+            </div>
+            <div class="diagram-modal-body" id="diagram-modal-body"></div>
+          </div>
+        </div>
+        <div class="modal-overlay" id="shortcuts-modal" hidden>
+          <div class="shortcuts-modal-content">
+            <div class="modal-header">
+              <span>⌨ KEYBOARD SHORTCUTS</span>
+              <button class="modal-close-btn" id="shortcuts-modal-close" type="button" aria-label="Close shortcuts help">✕</button>
+            </div>
+            <div class="shortcuts-grid">
+              <div class="shortcut-item"><kbd>F</kbd><span>Toggle Full Screen Mode</span></div>
+              <div class="shortcut-item"><kbd>T</kbd><span>Toggle Table of Contents</span></div>
+              <div class="shortcut-item"><kbd>Space</kbd> / <kbd>P</kbd><span>Play / Pause Audio Voice</span></div>
+              <div class="shortcut-item"><kbd>/</kbd><span>Search Notes</span></div>
+              <div class="shortcut-item"><kbd>D</kbd><span>Toggle Dark / Light Theme</span></div>
+              <div class="shortcut-item"><kbd>←</kbd> / <kbd>→</kbd><span>Previous / Next Topic</span></div>
+              <div class="shortcut-item"><kbd>?</kbd><span>Show / Hide Shortcuts</span></div>
+              <div class="shortcut-item"><kbd>Esc</kbd><span>Close Modals / Exit Full Screen</span></div>
+            </div>
+          </div>
+        </div>
         <div class="empty-state" id="empty-state" hidden>No notes match that search.</div>
         <footer class="site-footer">
           <p>AEM Notes — a field guide for AEM interview preparation. Built by <a href="https://kumaraman.in" target="_blank" rel="noopener me">Aman Kumar</a>.</p>

@@ -1730,10 +1730,10 @@ ${properties['jcr:title']}
 
 ---
 
-## Next file
+## Next topic
 
-**`09-Workflows.md`** — your syllabus point 19: what a workflow is, the model/process/launcher structure, writing a custom process step, and how workflows differ from schedulers and Sling Jobs. Your syllabus note says *"say you haven't done it but you know it"* — so this file is built to let you answer confidently and honestly at the same time.
+**`09-Workflows`** — your syllabus point 19: what a workflow is, the model/process/launcher structure, writing a custom process step, and how workflows differ from schedulers and Sling Jobs. Your syllabus note says *"say you haven't done it but you know it"* — so this file is built to let you answer confidently and honestly at the same time.
 
 ---
 
-*File 08 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 08 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

@@ -513,10 +513,10 @@ The Cloud Manager Code Quality gate is two tools doing two different jobs: Sonar
 
 ---
 
-## Next file
+## Next topic
 
 **Security best practices for AEM developers** — the security-specific patterns and mistakes this file touched on structurally (unclosed sessions, admin shortcuts, query injection) covered in depth, alongside AEM-specific concerns like XSS through HTL, CSRF protection, and dispatcher-level security already introduced in file 19.
 
 ---
 
-*File 28 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 28 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

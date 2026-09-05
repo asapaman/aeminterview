@@ -1886,10 +1886,10 @@ AEMaaCS: all of the above is managed by Adobe.
 
 ---
 
-## Next file
+## Next topic
 
-**`21-Querying-QueryBuilder-and-Indexes.md`** — the other half of Oak. Why **every query needs an index or Oak traverses**, QueryBuilder's predicate map and the predicates you actually use, JCR-SQL2 underneath it, Oak index definitions and the AEMaaCS naming convention, how to prove a query is using an index, and the practical rules that keep a listing component from taking down a publish instance.
+**`21-Querying-QueryBuilder-and-Indexes`** — the other half of Oak. Why **every query needs an index or Oak traverses**, QueryBuilder's predicate map and the predicates you actually use, JCR-SQL2 underneath it, Oak index definitions and the AEMaaCS naming convention, how to prove a query is using an index, and the practical rules that keep a listing component from taking down a publish instance.
 
 ---
 
-*File 20 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 20 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

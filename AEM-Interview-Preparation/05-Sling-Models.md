@@ -2068,10 +2068,10 @@ context.registerService(MyService.class, Mockito.mock(MyService.class));
 
 ---
 
-## Next file
+## Next topic
 
-**`06-OSGi-and-Services.md`** — your syllabus points 7, 11 and 13: every OSGi annotation and what it does, `@Reference` for calling a service from a servlet or another service, the difference between a service and a component, and how you actually turn a class into a service.
+**`06-OSGi-and-Services`** — your syllabus points 7, 11 and 13: every OSGi annotation and what it does, `@Reference` for calling a service from a servlet or another service, the difference between a service and a component, and how you actually turn a class into a service.
 
 ---
 
-*File 05 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 05 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

@@ -2904,10 +2904,10 @@ curl -I https://publish-host:4503/path      # bypass the dispatcher
 
 ---
 
-## Next file
+## Next topic
 
-**`20-JCR-Oak-and-the-Repository.md`** — the storage layer underneath everything: nodes and properties, node types, the `cq:Page` and `jcr:content` split, node stores and why AEMaaCS uses different ones per tier, and the repository maintenance that keeps 6.5 alive.
+**`20-JCR-Oak-and-the-Repository`** — the storage layer underneath everything: nodes and properties, node types, the `cq:Page` and `jcr:content` split, node stores and why AEMaaCS uses different ones per tier, and the repository maintenance that keeps 6.5 alive.
 
 ---
 
-*File 19 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 19 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

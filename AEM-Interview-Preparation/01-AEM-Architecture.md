@@ -1353,10 +1353,10 @@ add myproject-authors to group contributor
 
 ---
 
-## Next file
+## Next topic
 
-**`02-Component-Development.md`** — component anatomy, `cq:dialog`, `cq:editConfig`, `cq:Component` properties, Core Components and `sling:resourceSuperType`, the "tell me a complex component you built recently" question with three ready-to-use project stories, and 50+ questions.
+**`02-Component-Development`** — component anatomy, `cq:dialog`, `cq:editConfig`, `cq:Component` properties, Core Components and `sling:resourceSuperType`, the "tell me a complex component you built recently" question with three ready-to-use project stories, and 50+ questions.
 
 ---
 
-*File 01 of the AEM Interview Preparation repository.*
+*Topic 01 of the AEM Interview Preparation repository.*

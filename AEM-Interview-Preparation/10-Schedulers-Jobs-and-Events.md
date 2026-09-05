@@ -1592,10 +1592,10 @@ A human must act       → Workflow
 
 ---
 
-## Next file
+## Next topic
 
-**`11-Dialogs-and-Validation.md`** — your syllabus point 20: how you write validation JavaScript for a component dialog, the Granite UI validation registry, where the clientlib goes and which category it needs, and the built-in validation you get before writing any code.
+**`11-Dialogs-and-Validation`** — your syllabus point 20: how you write validation JavaScript for a component dialog, the Granite UI validation registry, where the clientlib goes and which category it needs, and the built-in validation you get before writing any code.
 
 ---
 
-*File 10 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 10 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

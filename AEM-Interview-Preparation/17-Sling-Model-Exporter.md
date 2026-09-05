@@ -1120,10 +1120,10 @@ Aggregation / HTML / bespoke   → custom servlet
 
 ---
 
-## Next file
+## Next topic
 
-**`18-Replication-and-Distribution.md`** — your syllabus point 27, and the last of the core set: what replication is, how agents work on 6.5, how Sling Content Distribution replaces them on Cloud Service, reverse replication, flush agents, and the queue problems that show up in production.
+**`18-Replication-and-Distribution`** — your syllabus point 27, and the last of the core set: what replication is, how agents work on 6.5, how Sling Content Distribution replaces them on Cloud Service, reverse replication, flush agents, and the queue problems that show up in production.
 
 ---
 
-*File 17 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 17 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

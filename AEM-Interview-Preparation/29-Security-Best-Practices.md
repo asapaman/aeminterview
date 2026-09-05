@@ -431,10 +431,10 @@ Security in AEM is best explained as a stack of specific, nameable mechanisms ra
 
 ---
 
-## Next file
+## Next topic
 
 **Java fundamentals for AEM developers** — the core Java language features (collections, generics, exceptions, concurrency basics, streams) that show up throughout AEM development and testing, built up from first principles for a developer whose Java is still a work in progress.
 
 ---
 
-*File 29 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 29 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

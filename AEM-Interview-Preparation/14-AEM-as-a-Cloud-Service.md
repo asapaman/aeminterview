@@ -976,10 +976,10 @@ But I'd want a team to go in knowing there's **no hotfix path**, because that ch
 
 ---
 
-## Next file
+## Next topic
 
-**`15-Content-Fragments.md`** — your syllabus points 24 and 25: what a Content Fragment is, how models work, how you read one in a Sling Model, and the headless delivery story with GraphQL.
+**`15-Content-Fragments`** — your syllabus points 24 and 25: what a Content Fragment is, how models work, how you read one in a Sling Model, and the headless delivery story with GraphQL.
 
 ---
 
-*File 14 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 14 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

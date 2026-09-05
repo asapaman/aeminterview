@@ -1305,10 +1305,10 @@ CHANGE type   → risky
 
 ---
 
-## Next file
+## Next topic
 
-**`16-Experience-Fragments.md`** — the other half of your syllabus point 24: what an Experience Fragment is, how it differs from a Content Fragment in practice, the plain HTML export for third-party channels, and when to use each.
+**`16-Experience-Fragments`** — the other half of your syllabus point 24: what an Experience Fragment is, how it differs from a Content Fragment in practice, the plain HTML export for third-party channels, and when to use each.
 
 ---
 
-*File 15 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 15 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

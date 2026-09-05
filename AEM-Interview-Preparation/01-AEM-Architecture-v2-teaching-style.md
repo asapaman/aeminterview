@@ -1875,10 +1875,10 @@ These are the details candidates know but lose under pressure. Read them twice.
 
 ---
 
-## Next file
+## Next topic
 
-**`02-Component-Development.md`** — how a component is actually put together, `cq:dialog` and `cq:editConfig`, extending Core Components with `sling:resourceSuperType`, and a full treatment of *"tell me about a complex component you built recently"* with three project stories you can adapt.
+**`02-Component-Development`** — how a component is actually put together, `cq:dialog` and `cq:editConfig`, extending Core Components with `sling:resourceSuperType`, and a full treatment of *"tell me about a complex component you built recently"* with three project stories you can adapt.
 
 ---
 
-*File 01 (v2, teaching style) of the AEM Interview Preparation repository.*
+*Topic 01 (v2, teaching style) of the AEM Interview Preparation repository.*

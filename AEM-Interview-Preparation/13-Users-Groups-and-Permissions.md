@@ -1334,10 +1334,10 @@ private window → publish directly          anonymous, no dispatcher
 
 ---
 
-## Next file
+## Next topic
 
-**`14-AEM-as-a-Cloud-Service.md`** — your syllabus point 23: the genuine benefits over on-premise and how to argue them, what actually changes for a developer, and the honest limitations, so you can answer "why is cloud better" without it sounding like a sales pitch.
+**`14-AEM-as-a-Cloud-Service`** — your syllabus point 23: the genuine benefits over on-premise and how to argue them, what actually changes for a developer, and the honest limitations, so you can answer "why is cloud better" without it sounding like a sales pitch.
 
 ---
 
-*File 13 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 13 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

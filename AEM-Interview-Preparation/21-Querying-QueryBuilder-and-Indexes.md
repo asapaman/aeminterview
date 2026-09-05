@@ -1192,10 +1192,10 @@ request.log                                                which page is slow
 
 ---
 
-## Next file
+## Next topic
 
-**`22-Core-Components-and-Style-System.md`** — Adobe's ready-made components, the proxy pattern in depth, extending via the delegation pattern, and the Style System for author-controlled appearance without new components.
+**`22-Core-Components-and-Style-System`** — Adobe's ready-made components, the proxy pattern in depth, extending via the delegation pattern, and the Style System for author-controlled appearance without new components.
 
 ---
 
-*File 21 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 21 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

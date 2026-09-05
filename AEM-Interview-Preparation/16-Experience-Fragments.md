@@ -921,10 +921,10 @@ It's also wrong for something that appears once — an XF adds indirection, a se
 
 ---
 
-## Next file
+## Next topic
 
-**`17-Sling-Model-Exporter.md`** — your syllabus point 26: what the Sling Model Exporter is, how `@Exporter` turns a model into JSON, the `.model.json` selector, how it relates to the SPA Editor, and where it fits alongside Content Fragments and GraphQL for headless delivery.
+**`17-Sling-Model-Exporter`** — your syllabus point 26: what the Sling Model Exporter is, how `@Exporter` turns a model into JSON, the `.model.json` selector, how it relates to the SPA Editor, and where it fits alongside Content Fragments and GraphQL for headless delivery.
 
 ---
 
-*File 16 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 16 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

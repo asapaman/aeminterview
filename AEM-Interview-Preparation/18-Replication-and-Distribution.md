@@ -1124,4 +1124,4 @@ Then the **README** with the roadmap and the 30, 60 and 90-day plans, written la
 
 ---
 
-*File 18 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 18 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

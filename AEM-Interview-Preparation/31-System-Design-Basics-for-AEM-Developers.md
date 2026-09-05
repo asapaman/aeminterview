@@ -422,10 +422,10 @@ A strong AEM system design answer follows the same disciplined shape as any syst
 
 ---
 
-## Next file
+## Next topic
 
-**`README.md`** — the repository index, study order, and 30/60/90-day preparation plan, written last so it reflects the complete, final set of files.
+**`README`** — the repository index, study order, and 30/60/90-day preparation plan, written last so it reflects the complete, final set of files.
 
 ---
 
-*File 31 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 31 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

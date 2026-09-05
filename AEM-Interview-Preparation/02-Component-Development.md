@@ -2256,10 +2256,10 @@ dynamic updates  → <div role="status" aria-live="polite">
 
 ---
 
-## Next file
+## Next topic
 
-**`03-Editable-Templates-and-Policies.md`** — your syllabus point 3 in full: how editable templates are created, structure versus initial content, what a policy actually is and where it's stored, page policy versus content policy, how policies inherit, and how you allow or hide components on a page.
+**`03-Editable-Templates-and-Policies`** — your syllabus point 3 in full: how editable templates are created, structure versus initial content, what a policy actually is and where it's stored, page policy versus content policy, how policies inherit, and how you allow or hide components on a page.
 
 ---
 
-*File 02 of the AEM Interview Preparation repository. Written in v2 teaching style, energy-sector project domain.*
+*Topic 02 of the AEM Interview Preparation repository. Written in v2 teaching style, energy-sector project domain.*

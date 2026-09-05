@@ -1432,10 +1432,10 @@ Remote SPA:              own domain, own pipeline, editing needs real work
 
 ---
 
-## Next file
+## Next topic
 
-**`25-Maven-Packages-and-Project-Structure.md`** — how an AEM project is actually laid out as Maven modules (`core`, `ui.apps`, `ui.content`, `ui.config`, `ui.frontend`, `all`), what each one is responsible for, how the build assembles and deploys them, and the dependency mistakes that show up when a project's structure doesn't match what these files have assumed throughout.
+**`25-Maven-Packages-and-Project-Structure`** — how an AEM project is actually laid out as Maven modules (`core`, `ui.apps`, `ui.content`, `ui.config`, `ui.frontend`, `all`), what each one is responsible for, how the build assembles and deploys them, and the dependency mistakes that show up when a project's structure doesn't match what these files have assumed throughout.
 
 ---
 
-*File 24 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 24 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

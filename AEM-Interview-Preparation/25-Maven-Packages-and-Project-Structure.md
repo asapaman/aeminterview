@@ -1141,10 +1141,10 @@ Config not applied                → run-mode folder, PID filename, filter
 
 ---
 
-## Next file
+## Next topic
 
-**`26-Cloud-Manager-Pipelines-and-CI-CD.md`** — Cloud Manager in depth, the pipeline types and quality gates, Git strategy and branching, environments, and what "CI/CD" actually looks like on an AEM project.
+**`26-Cloud-Manager-Pipelines-and-CI-CD`** — Cloud Manager in depth, the pipeline types and quality gates, Git strategy and branching, environments, and what "CI/CD" actually looks like on an AEM project.
 
 ---
 
-*File 25 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 25 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

@@ -63,7 +63,11 @@ const allDocs = [];
 
 for (let index = 0; index < files.length; index++) {
   const file = files[index];
-  const source = await readFile(path.join(sourceDir, file), 'utf8');
+  const sourceRaw = await readFile(path.join(sourceDir, file), 'utf8');
+  const source = sourceRaw
+    .replace(/^##\s+Next file/gm, '## Next topic')
+    .replace(/\*\*`([^`]+)\.md`\*\*/g, '**`$1`**')
+    .replace(/\*File (\d+)/g, '*Topic $1');
   const title = source.match(/^#\s+(.+)$/m)?.[1]?.replace(/[*_`]/g, '').trim() ?? file;
   const slug = file.replace(/\.md$/i, '').toLowerCase();
   const bodyHtml = marked.parse(source, { renderer });
@@ -131,8 +135,8 @@ const renderDocPage = (doc, index) => {
       <p class="static-breadcrumb"><a href="../">${SITE_NAME}</a> / ${escapeHtml(doc.title)}</p>
       <article class="markdown-body">${doc.bodyHtml}</article>
       <nav class="static-pager">
-        ${previous ? `<a href="${previous.slug}.html"><small>PREVIOUS</small><strong>← ${escapeHtml(previous.title)}</strong></a>` : '<span></span>'}
-        ${next ? `<a class="next" href="${next.slug}.html"><small>NEXT</small><strong>${escapeHtml(next.title)} →</strong></a>` : '<span></span>'}
+        ${previous ? `<a href="${previous.slug}.html"><small>PREVIOUS TOPIC</small><strong>← ${escapeHtml(previous.title)}</strong></a>` : '<span></span>'}
+        ${next ? `<a class="next" href="${next.slug}.html"><small>NEXT TOPIC</small><strong>${escapeHtml(next.title)} →</strong></a>` : '<span></span>'}
       </nav>
     </main>${footerHtml('../')}
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js" integrity="sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2" crossorigin="anonymous" defer></script>

@@ -1587,10 +1587,10 @@ com.adobe.granite.ui.clientlibs.impl.HtmlLibraryManagerImpl
 
 ---
 
-## Next file
+## Next topic
 
-**`05-Sling-Models.md`** — your syllabus points 6, 8, 9, 10 and 12 together: what a Sling Model is, how you turn a Java class into one, every annotation you need, what `adaptables` means and when you use `Resource.class` versus `SlingHttpServletRequest.class`, why `@PostConstruct` exists, `@ValueMapValue` versus `@Inject`, `@OSGiService` for calling a service from a model, and what `@ChildResource` is for.
+**`05-Sling-Models`** — your syllabus points 6, 8, 9, 10 and 12 together: what a Sling Model is, how you turn a Java class into one, every annotation you need, what `adaptables` means and when you use `Resource.class` versus `SlingHttpServletRequest.class`, why `@PostConstruct` exists, `@ValueMapValue` versus `@Inject`, `@OSGiService` for calling a service from a model, and what `@ChildResource` is for.
 
 ---
 
-*File 04 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 04 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

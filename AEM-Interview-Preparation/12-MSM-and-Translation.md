@@ -1351,10 +1351,10 @@ property.operation=exists
 
 ---
 
-## Next file
+## Next topic
 
-**`13-Users-Groups-and-Permissions.md`** — your syllabus point 22: users, groups, ACLs and how permissions are actually evaluated, closest-match and deny-wins, service users and Repoinit, and the standard AEM groups you should be able to name.
+**`13-Users-Groups-and-Permissions`** — your syllabus point 22: users, groups, ACLs and how permissions are actually evaluated, closest-match and deny-wins, service users and Repoinit, and the standard AEM groups you should be able to name.
 
 ---
 
-*File 12 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 12 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

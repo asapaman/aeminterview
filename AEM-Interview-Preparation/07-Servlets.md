@@ -1781,10 +1781,10 @@ Scopes: `REQUEST` · `INCLUDE` · `COMPONENT` · `FORWARD` · `ERROR`
 
 ---
 
-## Next file
+## Next topic
 
-**`08-HTL-Sightly.md`** — your syllabus points 17 and 18: how you call a Sling Model from HTL, every `data-sly` block element and what it's for, expression options and the display contexts, and why HTL deliberately can't do what JSP could.
+**`08-HTL-Sightly`** — your syllabus points 17 and 18: how you call a Sling Model from HTL, every `data-sly` block element and what it's for, expression options and the display contexts, and why HTL deliberately can't do what JSP could.
 
 ---
 
-*File 07 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 07 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

@@ -1568,10 +1568,10 @@ To hide, it depends what's meant. If it's "not available in this container," rem
 
 ---
 
-## Next file
+## Next topic
 
-**`04-Clientlibs.md`** — your syllabus points 4 and 5 together: what a clientlib is, why we use them, how to call them in HTML, why `js.txt` and `css.txt` exist, what `allowProxy` actually does and why setting it to true matters, and the difference between `categories`, `embed` and `dependencies`.
+**`04-Clientlibs`** — your syllabus points 4 and 5 together: what a clientlib is, why we use them, how to call them in HTML, why `js.txt` and `css.txt` exist, what `allowProxy` actually does and why setting it to true matters, and the difference between `categories`, `embed` and `dependencies`.
 
 ---
 
-*File 03 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 03 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

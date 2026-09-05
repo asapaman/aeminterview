@@ -2057,10 +2057,10 @@ Job consumer:   FAILED vs CANCEL · run twice (idempotency)
 
 ---
 
-## Next file
+## Next topic
 
-**`28-Code-Quality-SonarQube-and-Best-Practices.md`** — how the Cloud Manager quality gate actually scores a pull request, the SonarQube and OakPAL rules that matter most in practice, and the coding standards and review habits that keep a codebase from accumulating the kind of debt this file's testing discipline can't catch on its own.
+**`28-Code-Quality-SonarQube-and-Best-Practices`** — how the Cloud Manager quality gate actually scores a pull request, the SonarQube and OakPAL rules that matter most in practice, and the coding standards and review habits that keep a codebase from accumulating the kind of debt this file's testing discipline can't catch on its own.
 
 ---
 
-*File 27 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 27 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

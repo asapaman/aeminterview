@@ -1336,10 +1336,10 @@ Nothing fits?            -> Full custom component
 
 ---
 
-## Next file
+## Next topic
 
-**`23-Resource-Resolution-and-Sling-Resource-Merger.md`** — going deeper than file 01's introduction: the full resource resolution algorithm, how `/apps` and `/libs` overlay, the Sling Resource Merger's `sling:hideResource` and `sling:hideProperties` in complete detail, and `/mnt/overlay`.
+**`23-Resource-Resolution-and-Sling-Resource-Merger`** — going deeper than file 01's introduction: the full resource resolution algorithm, how `/apps` and `/libs` overlay, the Sling Resource Merger's `sling:hideResource` and `sling:hideProperties` in complete detail, and `/mnt/overlay`.
 
 ---
 
-*File 22 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 22 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

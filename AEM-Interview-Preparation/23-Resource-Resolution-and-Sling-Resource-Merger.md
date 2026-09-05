@@ -1426,10 +1426,10 @@ sling:redirect     = {Boolean}true    force a visible redirect instead of silent
 
 ---
 
-## Next file
+## Next topic
 
-**`24-Headless-AEM-GraphQL-and-SPA-Editor.md`** — Content Fragment-driven headless delivery through the GraphQL API, persisted queries, and how the SPA Editor keeps in-context authoring working when the front end is a React or Angular application rather than server-rendered HTL.
+**`24-Headless-AEM-GraphQL-and-SPA-Editor`** — Content Fragment-driven headless delivery through the GraphQL API, persisted queries, and how the SPA Editor keeps in-context authoring working when the front end is a React or Angular application rather than server-rendered HTL.
 
 ---
 
-*File 23 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 23 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

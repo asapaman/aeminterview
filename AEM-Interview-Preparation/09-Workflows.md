@@ -1430,10 +1430,10 @@ Human step or audit trail       → Workflow
 
 ---
 
-## Next file
+## Next topic
 
-**`10-Schedulers-Jobs-and-Events.md`** — the second half of your syllabus point 19: Sling Scheduler with cron expressions, Sling Jobs and why they're the right answer for bulk processing, event handlers and observation, and the cluster problem — how you stop a scheduled task running on every node.
+**`10-Schedulers-Jobs-and-Events`** — the second half of your syllabus point 19: Sling Scheduler with cron expressions, Sling Jobs and why they're the right answer for bulk processing, event handlers and observation, and the cluster problem — how you stop a scheduled task running on every node.
 
 ---
 
-*File 09 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 09 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

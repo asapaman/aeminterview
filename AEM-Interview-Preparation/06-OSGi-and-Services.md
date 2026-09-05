@@ -1918,10 +1918,10 @@ service = context.registerInjectActivateService(new MyServiceImpl(), configMap);
 
 ---
 
-## Next file
+## Next topic
 
-**`07-Servlets.md`** — your syllabus points 14, 15 and 16: all the servlet annotations and methods, the two ways to register a servlet — by path and by resource type — what the real difference is and when to use each, GET/POST/PUT/DELETE examples, and when you extend `SlingSafeMethodsServlet` versus `SlingAllMethodsServlet`.
+**`07-Servlets`** — your syllabus points 14, 15 and 16: all the servlet annotations and methods, the two ways to register a servlet — by path and by resource type — what the real difference is and when to use each, GET/POST/PUT/DELETE examples, and when you extend `SlingSafeMethodsServlet` versus `SlingAllMethodsServlet`.
 
 ---
 
-*File 06 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 06 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

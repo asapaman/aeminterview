@@ -563,10 +563,10 @@ The Java that actually matters for AEM development is a specific, learnable slic
 
 ---
 
-## Next file
+## Next topic
 
 **System design basics for AEM developers** — how to approach an open-ended "design a system" question when the system is a multi-site, headless-capable AEM platform: scalability, caching layers, content modelling for reuse, and the trade-offs an AEM-specific system design answer is expected to name.
 
 ---
 
-*File 30 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 30 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*

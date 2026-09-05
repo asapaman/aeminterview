@@ -1408,10 +1408,10 @@ What I **would** test automatically is the server-side counterpart, because that
 
 ---
 
-## Next file
+## Next topic
 
-**`12-MSM-and-Translation.md`** — your syllabus point 21 in full: what MSM is, blueprint versus live copy versus language copy, how rollout configurations work, inheritance and how it's cancelled, and how translation actually runs on a multi-country project.
+**`12-MSM-and-Translation`** — your syllabus point 21 in full: what MSM is, blueprint versus live copy versus language copy, how rollout configurations work, inheritance and how it's cancelled, and how translation actually runs on a multi-country project.
 
 ---
 
-*File 11 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
+*Topic 11 of the AEM Interview Preparation repository. Teaching style, energy-sector project domain.*
